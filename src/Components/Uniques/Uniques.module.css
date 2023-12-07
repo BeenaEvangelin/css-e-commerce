@@ -1,0 +1,119 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.things {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #3e3e3e;
+}
+
+.uniques {
+  border: 1px;
+  margin-right: 61rem;
+  margin-top: 24px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.card {
+  width: 200px;
+  height: 290px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  margin: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+}
+.image {
+  width: 184px;
+  height: 154px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.otherCategory {
+  height: 3rem;
+  width: 6rem;
+  text-align: center;
+  color: var(--color-text-text, #3e3e3e);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 2rem 4rem;
+}
+.line {
+  border-bottom: 1px solid #d1cbcb;
+  width: 200px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.decorate {
+  display: flex;
+  justify-content: center;
+}
+.circle {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #f5f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: #3e3e3e;
+  margin: 2px;
+}
+.amount {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #3e3e3e;
+  margin-top: 16px;
+}
+.text {
+  margin: 10px;
+}
+.like {
+  width: 16px;
+  height: 16px;
+  color: rgba(95, 95, 95, 1);
+  position: absolute;
+}
+.round {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 9rem;
+  margin-top: 10px;
+  border: 1px solid #cfcccc;
+}

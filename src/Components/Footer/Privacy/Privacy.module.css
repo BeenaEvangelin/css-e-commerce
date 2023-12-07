@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #3e3e3e;
+  font-weight: 400;
+  margin-top: 4rem;
+}
+.copyrights {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.terms {
+  font-size: 14px;
+  display: flex;
+  font-size: 14px;
+  line-height: 24px;
+  margin-right: 7.5rem;
+}
+.text {
+  margin-right: 48px;
+}
+.scroll {
+  font-size: 12px;
+  line-height: 16px;
+}

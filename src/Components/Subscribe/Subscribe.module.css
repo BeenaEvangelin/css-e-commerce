@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 1320px;
+  height: 306px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background-color: #5959d9;
+  margin: 3rem;
+}
+.textbox {
+  width: 551px;
+  height: 86px;
+  margin-right: 35rem;
+  margin-top: 3rem;
+}
+.intro {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  color: white;
+}
+.subtitle {
+  margin-top: 10px;
+}
+.mailtab {
+  width: 648px;
+  height: 48px;
+  background-color: white;
+  flex-shrink: 0;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.input {
+  border: none;
+  margin: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #9a9a9a;
+}
+
+.btn {
+  width: 133px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background-color: #eb8426;
+  border: none;
+  margin: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.arrow {
+  margin-left: 5px;
+  width: 16px;
+}
+.order {
+  color: #d6d6d6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: underline;
+  margin: 2rem;
+}

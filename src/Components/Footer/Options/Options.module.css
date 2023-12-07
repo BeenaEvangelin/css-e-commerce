@@ -1,0 +1,29 @@
+.others {
+  display: flex;
+  padding: 0px 59px 28p 0px;
+}
+.title {
+  text-align: left;
+  color: #3e3e3e;
+  font-size: 16px;
+  font-family: 500;
+  line-height: 20px;
+  padding-bottom: 24px;
+}
+.option {
+  display: flex;
+  width: 900px;
+  justify-content: space-evenly;
+}
+.options {
+  margin-right: 8rem;
+}
+.subTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #292929;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}

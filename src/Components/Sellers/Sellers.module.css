@@ -1,0 +1,75 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.things {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #3e3e3e;
+}
+.span {
+  color: #9a9a9a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+.sellers {
+  border: 1px;
+  width: 50vh;
+  margin-right: 51rem;
+  margin-top: 24px;
+  text-align: start;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.card {
+  width: 144px;
+  height: 144px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  margin: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+}
+.image {
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+.title {
+  text-align: center;
+  color: var(--color-text-text, #3e3e3e);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  font-style: normal;
+}
+.circle {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #f5f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+}
+.frame {
+  display: flex;
+  align-items: center;
+}
