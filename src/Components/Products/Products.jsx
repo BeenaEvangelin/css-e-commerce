@@ -50,7 +50,7 @@ const AllProducts = [
 ];
 const Products = () => {
   return (
-    <>
+    <div className={classes.section}>
       <div className={classes.container}>
         {AllProducts.map((product) => (
           <div key={product.id}>
@@ -100,7 +100,13 @@ const Products = () => {
           </div>
         ))}
       </div>
-    </>
+      <div className={classes.scrollBtns}>
+        <div className={classes.greybtns}></div>
+        <div className={classes.goldbtn}></div>
+        <div className={classes.greybtns}></div>
+        <div className={classes.greybtns}></div>
+      </div>
+    </div>
   );
 };
 

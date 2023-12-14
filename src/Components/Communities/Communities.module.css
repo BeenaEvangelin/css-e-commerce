@@ -3,18 +3,19 @@
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
+  margin-inline: auto;
 }
 .card {
-  width: 424px;
+  /* max-width: 424px;
+  width: 100%; */
   height: 174px;
-  flex-shrink: 0;
   background: var(--base-gray-background, #f5f6f8);
   border-radius: 5px;
-  margin: 12px;
-  padding-top: 10px;
   display: flex;
+  /* flex: 1 1 100%; */
   justify-content: center;
   align-items: center;
+  margin: 2px;
 }
 .title {
   font-size: 16px;
@@ -39,10 +40,97 @@
   font-weight: 400;
   line-height: 16px;
 }
+.mobtitle {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--main-middle-black, #0b0b0b);
+}
+.mobtext {
+  text-align: start;
+  height: 40%;
+  width: 90%;
+  display: flex;
 
+  flex-direction: column;
+}
+.mobdescription {
+  margin: 0rem 1rem;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
 .comm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 100%;
+    max-width: 288px;
+    height: 283px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 100%;
+    max-width: 268px;
+    height: 282px;
+    margin: 10px;
+  }
+  .container {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-grow: 1;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 268px;
+    height: 282px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .text {
+    display: none;
+  }
+  .mobtext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .mobtitle {
+    width: 10rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .mobdescription {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .mobtext {
+    display: none;
+  }
 }

@@ -35,6 +35,12 @@ const Communities = () => {
               <div className={classes.description}>{community.discription}</div>
             </div>
             <img src={community.image} />
+            <div className={classes.mobtext}>
+              <div className={classes.mobtitle}>{community.title}</div>
+              <div className={classes.mobdescription}>
+                {community.discription}
+              </div>
+            </div>
           </div>
         ))}
       </div>

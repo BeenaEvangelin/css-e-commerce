@@ -2,6 +2,7 @@ import React from "react";
 import Options from "./Options/Options";
 import classes from "./Footer.module.css";
 import Privacy from "./Privacy/Privacy";
+import NavItem from "./NavItems/NavItem";
 const Footer = () => {
   return (
     <div className={classes.section}>
@@ -131,6 +132,7 @@ const Footer = () => {
         <div>
           <Privacy />
         </div>
+        <NavItem />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@
 .mobileNav {
   display: flex;
   justify-content: center;
-
+  margin-bottom: 10px;
   flex-grow: 1;
 }
 .box {
@@ -92,6 +92,7 @@
   }
   .mobileNav {
     justify-content: space-between;
+    margin: 20px;
   }
 }
 @media (max-width: 1400px) {
@@ -100,6 +101,10 @@
   }
   .mobileNav {
     justify-content: space-between;
+    margin: 20px;
+  }
+  .options {
+    margin: 0px 20px 0px 20px;
   }
 }
 @media (min-width: 1400px) {

@@ -26,6 +26,9 @@ const Subscribe = () => {
               Subscribe <FaArrowRight className={classes.arrow} />
             </button>
           </div>
+          <button className={classes.mobBtn}>
+            Subscribe <FaArrowRight className={classes.arrow} />
+          </button>
           <div className={classes.order}>First order only. You're ready?</div>
         </div>
       </div>

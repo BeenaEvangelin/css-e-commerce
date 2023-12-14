@@ -1,6 +1,17 @@
 import React from "react";
 import classes from "./Category.module.css";
 import Products from "../Products/Products";
+import Communities from "../Communities/Communities";
+import Sellers from "../Sellers/Sellers";
+import Uniques from "../Uniques/Uniques";
+import OtherItems from "../OtherItems/OtherItems";
+import Subscribe from "../Subscribe/Subscribe";
+import Tab from "../Tab/Tab";
+import Footer from "../Footer/Footer";
+import Login from "../Authentication/Login";
+import Signup from "../Authentication/Signup";
+import Logout from "../Authentication/Logout";
+import { Counter } from "../../featues/counter/Counter";
 import image1 from "../../assets/images/image1.jpg";
 import image2 from "../../assets/images/image2.png";
 import image3 from "../../assets/images/image3.png";
@@ -13,18 +24,36 @@ const Images = [
 
 const Category = () => {
   return (
-    <div className={classes.backdrop}>
-      <div className={classes.category}>
-        <div className={classes.products}>
-          {Images.map((image) => (
-            <div key={image.id} className={classes.list}>
-              <img src={image.image} className={classes.image} />
-              <p className={classes.title}>{image.title}</p>
+    <div className={classes.categories}>
+      <div className={classes.backdrop}>
+        <div className={classes.category}>
+          <div>
+            <div className={classes.products}>
+              {Images.map((image) => (
+                <div
+                  key={image.id}
+                  className={classes.list}
+                  style={{ backgroundImage: `url(${image.image})` }}
+                >
+                  <p className={classes.title}>{image.title}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* <Products /> */}
+            <Products />
+            <Communities />
+            <Sellers />
+            <Uniques />
+            <OtherItems />
+            <Subscribe />
+            <Tab />
+            <Footer />
+            <Login />
+            <Signup />
+            <Logout />
+            <Counter />
+          </div>
+        </div>
       </div>
     </div>
   );

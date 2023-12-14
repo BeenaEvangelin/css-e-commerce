@@ -8,14 +8,15 @@ import Subscribe from "./Components/Subscribe/Subscribe";
 import Category from "./Components/Category/Category";
 import Sellers from "./Components/Sellers/Sellers";
 import Communities from "./Components/Communities/Communities";
+
 import "./App.css";
 const App = () => {
   return (
     <div>
       <Header />
       <Category />
-      {/* <Communities />
-      <Sellers />
+      {/* <Communities /> */}
+      {/* <Sellers />
       <Uniques />
       <OtherItems />
       <Subscribe />

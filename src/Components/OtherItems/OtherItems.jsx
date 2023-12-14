@@ -108,6 +108,12 @@ const OtherItems = () => {
           </div>
         ))}
       </div>
+      <div className={classes.scrollBtns}>
+        <div className={classes.greybtns}></div>
+        <div className={classes.goldbtn}></div>
+        <div className={classes.greybtns}></div>
+        <div className={classes.greybtns}></div>
+      </div>
     </>
   );
 };

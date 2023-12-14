@@ -127,20 +127,20 @@ const Header = () => {
               <path
                 d="M5 7H19"
                 stroke="#5F5F5F"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
               <path
                 d="M5 12H15"
                 stroke="#5F5F5F"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
               <path
                 d="M5 17H11"
                 stroke="#5F5F5F"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
             </svg>
           </button>

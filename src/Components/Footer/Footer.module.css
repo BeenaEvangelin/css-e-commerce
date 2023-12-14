@@ -1,11 +1,12 @@
 .container {
-  width: 1320px;
+  width: 100%;
+  max-width: 1320px;
   height: 306px;
   margin: 3rem;
+  margin-inline: auto;
 }
 .section {
   display: flex;
-
   justify-content: center;
 }
 .footer {
@@ -24,6 +25,36 @@
 .touch {
   display: inline-flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 16px;
   margin: 24px 0px;
+}
+.about {
+  border: 1px;
+}
+
+@media (max-width: 1400px) {
+  .section {
+    flex-wrap: wrap;
+  }
+  .container {
+    flex-wrap: wrap;
+    max-width: 900px;
+    height: 400px;
+  }
+  .touch {
+    display: grid;
+    grid-template-columns: 30px 30px;
+    align-items: flex-start;
+    margin-right: 3rem;
+  }
+  .about {
+    width: 132px;
+    height: 240px;
+  }
+}
+@media (max-width: 900px) {
+  .footer {
+    display: none;
+  }
 }
