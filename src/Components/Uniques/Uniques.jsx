@@ -1,185 +1,10 @@
 import React from "react";
 import classes from "./Uniques.module.css";
-import Uniques1 from "../../assets/images/Unique1.png";
-import Uniques2 from "../../assets/images/Unique2.png";
-import Uniques3 from "../../assets/images/Unique3.png";
-import Uniques4 from "../../assets/images/Unique4.png";
-import Uniques5 from "../../assets/images/Unique5.png";
-import Uniques6 from "../../assets/images/Uniques6.png";
+import { AllUniques } from "./allUniques";
+import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { useRef } from "react";
-
-const AllUniques = [
-  {
-    image: Uniques1,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "216,27",
-    OtherCategory: "Modern Farmhouse",
-  },
-  {
-    image: Uniques2,
-    title: "Womens Cognac Leather",
-    subTitle: "Elastic Straps",
-    amount: "195,13",
-    OtherCategory: "Eclectic Decor",
-  },
-  {
-    image: Uniques3,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "910,76",
-    OtherCategory: "Polka Boho Decor",
-  },
-  {
-    image: Uniques4,
-    title: "Hip Top Canvas Shoes",
-    subTitle: "Shoes",
-    amount: "341,02",
-    OtherCategory: "Minimalist Style",
-  },
-  {
-    image: Uniques5,
-    title: "Rose Gold Moissanite Vintage",
-    subTitle: "Wedding Ring Set",
-    amount: "3.344,13",
-    OtherCategory: "Anniversary Gift",
-  },
-  {
-    image: Uniques6,
-    title: "Blue Topaz Bangle 4K Gold",
-    subTitle: "Plated Handmade",
-    amount: "789,09",
-    OtherCategory: "Wedding Gifts",
-  },
-  {
-    image: Uniques1,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "216,27",
-    OtherCategory: "Modern Farmhouse",
-  },
-  {
-    image: Uniques2,
-    title: "Womens Cognac Leather",
-    subTitle: "Elastic Straps",
-    amount: "195,13",
-    OtherCategory: "Eclectic Decor",
-  },
-  {
-    image: Uniques3,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "910,76",
-    OtherCategory: "Polka Boho Decor",
-  },
-  {
-    image: Uniques4,
-    title: "Hip Top Canvas Shoes",
-    subTitle: "Shoes",
-    amount: "341,02",
-    OtherCategory: "Minimalist Style",
-  },
-  {
-    image: Uniques5,
-    title: "Rose Gold Moissanite Vintage",
-    subTitle: "Wedding Ring Set",
-    amount: "3.344,13",
-    OtherCategory: "Anniversary Gift",
-  },
-  {
-    image: Uniques6,
-    title: "Blue Topaz Bangle 4K Gold",
-    subTitle: "Plated Handmade",
-    amount: "789,09",
-    OtherCategory: "Wedding Gifts",
-  },
-  {
-    image: Uniques1,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "216,27",
-    OtherCategory: "Modern Farmhouse",
-  },
-  {
-    image: Uniques2,
-    title: "Womens Cognac Leather",
-    subTitle: "Elastic Straps",
-    amount: "195,13",
-    OtherCategory: "Eclectic Decor",
-  },
-  {
-    image: Uniques3,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "910,76",
-    OtherCategory: "Polka Boho Decor",
-  },
-  {
-    image: Uniques4,
-    title: "Hip Top Canvas Shoes",
-    subTitle: "Shoes",
-    amount: "341,02",
-    OtherCategory: "Minimalist Style",
-  },
-  {
-    image: Uniques5,
-    title: "Rose Gold Moissanite Vintage",
-    subTitle: "Wedding Ring Set",
-    amount: "3.344,13",
-    OtherCategory: "Anniversary Gift",
-  },
-  {
-    image: Uniques6,
-    title: "Blue Topaz Bangle 4K Gold",
-    subTitle: "Plated Handmade",
-    amount: "789,09",
-    OtherCategory: "Wedding Gifts",
-  },
-  {
-    image: Uniques1,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "216,27",
-    OtherCategory: "Modern Farmhouse",
-  },
-  {
-    image: Uniques2,
-    title: "Womens Cognac Leather",
-    subTitle: "Elastic Straps",
-    amount: "195,13",
-    OtherCategory: "Eclectic Decor",
-  },
-  {
-    image: Uniques3,
-    title: "Distressed Tote Leather Bag",
-    subTitle: "Leather Bag",
-    amount: "910,76",
-    OtherCategory: "Polka Boho Decor",
-  },
-  {
-    image: Uniques4,
-    title: "Hip Top Canvas Shoes",
-    subTitle: "Shoes",
-    amount: "341,02",
-    OtherCategory: "Minimalist Style",
-  },
-  {
-    image: Uniques5,
-    title: "Rose Gold Moissanite Vintage",
-    subTitle: "Wedding Ring Set",
-    amount: "3.344,13",
-    OtherCategory: "Anniversary Gift",
-  },
-  {
-    image: Uniques6,
-    title: "Blue Topaz Bangle 4K Gold",
-    subTitle: "Plated Handmade",
-    amount: "789,09",
-    OtherCategory: "Wedding Gifts",
-  },
-];
 
 const Uniques = () => {
   const inputSlide = useRef();
@@ -201,9 +26,9 @@ const Uniques = () => {
           </div>
 
           <div className={classes.container} ref={inputSlide}>
-            {AllUniques.map((unique, idx) => (
-              <div key={idx}>
-                <>
+            {AllUniques.map((unique, id) => (
+              <Link key={id} to={`/uniques/${id}`}>
+                <div>
                   <div className={classes.card}>
                     <div>
                       <div className={classes.round}>
@@ -237,12 +62,12 @@ const Uniques = () => {
                   <div className={classes.otherCategory}>
                     {unique.OtherCategory}
                   </div>
-                </>
+                </div>
 
                 <div className={classes.decorate}>
                   <div className={classes.line}></div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

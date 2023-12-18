@@ -2,7 +2,16 @@ import React from "react";
 import Navigation from "../Navigation/Navigation";
 import classes from "./Header.module.css";
 import Search from "./Search";
+import { useNavigate } from "react-router-dom";
+import { selectUser } from "../../featues/User/UserSlice";
+import { useSelector } from "react-redux";
+
 const Header = () => {
+  const user = useSelector(selectUser);
+  const navigate = useNavigate();
+  const navigateLogin = () => {
+    navigate("/login");
+  };
   return (
     <div className={classes.header}>
       <div className={classes.container}>
@@ -65,7 +74,8 @@ const Header = () => {
               </div>
 
               <button className={classes.helpBtn}>Help</button>
-              <div className={classes.account}>
+
+              <div className={classes.account} onClick={navigateLogin}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -88,9 +98,14 @@ const Header = () => {
                     strokeLinecap="round"
                   />
                 </svg>
-                <span className={classes.accText}>Account</span>
+                {user?.username ? (
+                  <span className={classes.username}>Hi {user?.username}</span>
+                ) : (
+                  <span className={classes.accText}>Account</span>
+                )}
               </div>
-              <div className={classes.account}>
+
+              <div className={classes.shopping}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

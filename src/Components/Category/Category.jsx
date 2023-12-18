@@ -8,19 +8,8 @@ import OtherItems from "../OtherItems/OtherItems";
 import Subscribe from "../Subscribe/Subscribe";
 import Tab from "../Tab/Tab";
 import Footer from "../Footer/Footer";
-import Login from "../Authentication/Login";
-import Signup from "../Authentication/Signup";
-import Logout from "../Authentication/Logout";
-import { Counter } from "../../featues/counter/Counter";
-import image1 from "../../assets/images/image1.jpg";
-import image2 from "../../assets/images/image2.png";
-import image3 from "../../assets/images/image3.png";
-
-const Images = [
-  { id: 1, image: image1, title: "Clothing & Shoes" },
-  { id: 2, image: image2, title: "Home & Living" },
-  { id: 3, image: image3, title: "Art & Collectibles" },
-];
+import { Images } from "./Images";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   return (
@@ -29,14 +18,15 @@ const Category = () => {
         <div className={classes.category}>
           <div>
             <div className={classes.products}>
-              {Images.map((image) => (
-                <div
+              {Images.map((image, idx) => (
+                <Link
                   key={image.id}
+                  to={`/categories/${idx}`}
                   className={classes.list}
                   style={{ backgroundImage: `url(${image.image})` }}
                 >
                   <p className={classes.title}>{image.title}</p>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -48,10 +38,6 @@ const Category = () => {
             <Subscribe />
             <Tab />
             <Footer />
-            <Login />
-            <Signup />
-            <Logout />
-            <Counter />
           </div>
         </div>
       </div>
