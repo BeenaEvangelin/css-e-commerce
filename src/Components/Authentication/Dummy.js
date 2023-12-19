@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Signup.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { login } from "../../featues/User/UserSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +8,16 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
+  const [username, setusername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfimPassword] = useState("");
-
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [formError, setFormError] = useState({
     username: "",
     email: "",
@@ -20,67 +25,48 @@ const Signup = () => {
     confirmPassword: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const validateForm = (fieldName) => {
+    const newErrors = formError;
 
-  const handleUsernameChange = (e) => {
-    validateField(e.target.name, e.target.value);
-    const enteredUsername = e.target.value;
-    setUsername(enteredUsername);
-  };
-  const handleEmailChange = (e) => {
-    validateField(e.target.name, e.target.value);
-
-    const enteredEmail = e.target.value;
-    setEmail(enteredEmail);
-  };
-
-  const handlePasswordChange = (e) => {
-    validateField(e.target.name, e.target.value);
-    const enteredPassword = e.target.value;
-    setPassword(enteredPassword);
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    validateField(e.target.name, e.target.value);
-    const enteredConfirmPassword = e.target.value;
-    setConfimPassword(enteredConfirmPassword);
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (isFormValid) {
-      dispatch(
-        login({
-          username: username,
-          email: email,
-          password: password,
-          confirmPassword: confirmPassword,
-          loggedIn: true,
-        })
+    if (fieldName) {
+      console.log(
+        "🚀 ~ file: Signup.jsx:28 ~ validateForm ~ fieldName:",
+        fieldName
       );
-      navigate("/");
-    } else {
-      validateForm();
+      if (formData[fieldName].trim() === "") {
+        newErrors[fieldName] = `${fieldName} is required`;
+      } else {
+        newErrors[fieldName] = "";
+      }
+      setFormError(newErrors);
+
+      return;
     }
-  };
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (username.trim() === "") {
+    if (formData.username.trim() === "") {
       newErrors.username = "Username is required";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (
+      // formData.email &&
+
+      !emailRegex.test(formData.email)
+    ) {
       newErrors.email = "Invalid email address";
     }
 
-    if (password.length < 6) {
+    if (
+      // formData.password &&
+      formData.password.length < 6
+    ) {
       newErrors.password = "Password must be at least 6 characters long";
     }
 
-    if (confirmPassword !== password) {
+    if (
+      // formData.confirmPassword &&
+      formData.confirmPassword !== formData.password
+    ) {
       newErrors.confirmPassword = "Passwords do not match";
     }
 
@@ -90,32 +76,32 @@ const Signup = () => {
     setIsFormValid(isValid);
   };
 
-  const validateField = (fieldName, value) => {
-    const newErrors = { ...formError };
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    validateForm(e.target.name);
+  };
 
-    switch (fieldName) {
-      case "username":
-        newErrors.username = value.trim() ? "" : "Username is required";
-        break;
-      case "email":
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        newErrors.email = emailRegex.test(value) ? "" : "Invalid email address";
-        break;
-      case "password":
-        newErrors.password =
-          value.length >= 6
-            ? ""
-            : "Password must be at least 6 characters long";
-        break;
-      case "confirmPassword":
-        newErrors.confirmPassword =
-          value === password ? "" : "Passwords do not match";
-        break;
-      default:
-        break;
+  const submitHandler = (e) => {
+    e.preventDefault();
+    validateForm();
+
+    if (isFormValid) {
+      dispatch(
+        login({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: formData.confirmPassword,
+          loggedIn: true,
+        })
+      );
+      navigate("/");
+    } else {
+      validateForm();
     }
-
-    setFormError(newErrors);
   };
 
   return (
@@ -129,12 +115,14 @@ const Signup = () => {
               placeholder="Name"
               type="text"
               name="username"
-              value={username}
-              onChange={handleUsernameChange}
+              value={formData.username}
+              onChange={handleChange}
               className={classes.form__input}
             />
 
-            <p style={{ color: "red" }}>{formError.username}</p>
+            {formError.username && (
+              <p style={{ color: "red" }}>{formError.username}</p>
+            )}
           </div>
 
           <div className={classes.form__enteries}>
@@ -143,12 +131,14 @@ const Signup = () => {
               placeholder="Email"
               type="text"
               name="email"
-              value={email}
-              onChange={handleEmailChange}
+              value={formData.email}
+              onChange={handleChange}
               className={classes.form__input}
             />
 
-            <p style={{ color: "red" }}>{formError.email}</p>
+            {formError.email && (
+              <p style={{ color: "red" }}>{formError.email}</p>
+            )}
           </div>
           <div className={classes.form__enteries}>
             <label className={classes.form__label}>Your password</label>
@@ -157,12 +147,13 @@ const Signup = () => {
               type="password"
               name="password"
               placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
+              value={formData.password}
+              onChange={handleChange}
               className={classes.form__input}
             />
-
-            <p style={{ color: "red" }}>{formError.password}</p>
+            {formError.password && (
+              <p style={{ color: "red" }}>{formError.password}</p>
+            )}
           </div>
           <div className={classes.form__enteries}>
             <label className={classes.form__label}>Confirm password</label>
@@ -171,12 +162,13 @@ const Signup = () => {
               type="password"
               name="confirmPassword"
               placeholder="Password"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
+              value={formData.confirmPassword}
+              onChange={handleChange}
               className={classes.form__input}
             />
-
-            <p style={{ color: "red" }}>{formError.confirmPassword}</p>
+            {formError.confirmPassword && (
+              <p style={{ color: "red" }}>{formError.confirmPassword}</p>
+            )}
           </div>
         </div>
 

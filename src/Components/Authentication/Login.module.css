@@ -74,6 +74,7 @@
   font-family: 500;
   line-height: normal;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 .form_accountBtn {
   display: flex;
@@ -90,4 +91,5 @@
   font-family: 500;
   line-height: normal;
   background: transparent;
+  cursor: pointer;
 }

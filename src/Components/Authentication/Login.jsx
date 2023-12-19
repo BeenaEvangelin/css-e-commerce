@@ -1,50 +1,31 @@
 import React from "react";
 import { login } from "../../featues/User/UserSlice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import classes from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [formError, setFormError] = useState({
-    email: "",
-    password: "",
-  });
-
   const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState({
+    username: "",
+    password: "",
+  });
+
   const [isFormValid, setIsFormValid] = useState(false);
-  useEffect(() => {
-    const validateForm = () => {
-      const newErrors = {};
+  const handleUsernameChange = (e) => {
+    validateField(e.target.name, e.target.value);
+    const enteredUsername = e.target.value;
+    setUsername(enteredUsername);
+  };
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        newErrors.email = "Invalid email address";
-      }
-
-      if (formData.password.length < 6) {
-        newErrors.password = "Password must be at least 6 characters long";
-      }
-
-      setFormError(newErrors);
-
-      const isValid = Object.keys(newErrors).length === 0;
-      setIsFormValid(isValid);
-    };
-
-    validateForm();
-  }, [formData]);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handlePasswordChange = (e) => {
+    validateField(e.target.name, e.target.value);
+    const enteredPassword = e.target.value;
+    setPassword(enteredPassword);
   };
 
   const handleSubmit = (e) => {
@@ -53,8 +34,8 @@ const Login = () => {
     if (isFormValid) {
       dispatch(
         login({
-          email: formData.email,
-          password: formData.password,
+          username: username,
+          password: password,
           loggedIn: true,
         })
       );
@@ -66,24 +47,61 @@ const Login = () => {
   const navigateSignup = () => {
     navigate("/signup");
   };
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (username.trim() === "") {
+      newErrors.username = "Username is required";
+    }
+
+    if (password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters long";
+    }
+
+    setFormError(newErrors);
+
+    const isValid = Object.keys(newErrors).length === 0;
+    setIsFormValid(isValid);
+  };
+  const validateField = (fieldName, value) => {
+    const newErrors = { ...formError };
+
+    switch (fieldName) {
+      case "username":
+        newErrors.username = value.trim() ? "" : "Username is required";
+        break;
+
+      case "password":
+        newErrors.password =
+          value.length >= 6
+            ? ""
+            : "Password must be at least 6 characters long";
+        break;
+
+      default:
+        break;
+    }
+
+    setFormError(newErrors);
+  };
+
   return (
     <div className={classes.login}>
       <form className={classes.form} onSubmit={handleSubmit}>
         <h1 className={classes.form_title}>Sign in</h1>
         <div className={classes.form_inputs}>
           <div className={classes.form_enteries}>
-            <label className={classes.form_label}>Email</label>
+            <label className={classes.form_label}>User Name</label>
             <input
-              placeholder="Email"
+              placeholder="Username"
               type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
+              name="username"
+              value={username}
+              onChange={handleUsernameChange}
               className={classes.form_input}
             />
-            {formData.email !== "" && formError.email && (
-              <p style={{ color: "red" }}>{formError.email}</p>
-            )}
+
+            <p style={{ color: "red" }}>{formError.username}</p>
           </div>
           <div className={classes.form_enteries}>
             <label className={classes.form_label}>Your password</label>
@@ -91,14 +109,13 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
+              placeholder="password"
+              value={password}
+              onChange={handlePasswordChange}
               className={classes.form_input}
             />
-            {formData.password !== "" && formError.password && (
-              <p style={{ color: "red" }}>{formError.password}</p>
-            )}
+
+            <p style={{ color: "red" }}>{formError.password}</p>
           </div>
         </div>
 
